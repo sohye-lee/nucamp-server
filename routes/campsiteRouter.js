@@ -23,7 +23,7 @@ campsiteRouter.route('/')
     })
     .catch(err => next(err));
 })
-.put((req, res, next) => {
+.put((req, res) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /campsites');
 })
@@ -36,7 +36,6 @@ campsiteRouter.route('/')
     })
     .catch(err => next(err));
 });
-
 
 campsiteRouter.route('/:campsiteId')
 .get((req, res, next) => {
@@ -73,7 +72,6 @@ campsiteRouter.route('/:campsiteId')
     })
     .catch(err => next(err));
 });
-
 
 campsiteRouter.route('/:campsiteId/comments')
 .get((req, res, next) => {
