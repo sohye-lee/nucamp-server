@@ -107,7 +107,7 @@ favoriteRouter.route('/:campsiteId')
     Favorite.findOne({ user: req.user._id })
     .then(favorite => {
         if (favorite) {
-            favorite.campsites.filter(campsite => campsite._id !== req.params.campsiteId);
+            favorite.campsites.filter(fav => fav.toString() !== req.params.campsiteId);
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.json(favorite)
