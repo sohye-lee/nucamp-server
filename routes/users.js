@@ -15,9 +15,11 @@ const router = express.Router();
 
 
 router.get('/', cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req,res,next) => {
-  User.find({})
+  User.find()
   .then(users => {
-    res.send(users);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(users);
   })
   .catch(err => next(err));
 });
